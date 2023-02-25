@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-mariadb
+  namespace: {{ .Values.namespace.name }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.mariaDbName }}
+  template:
+    metadata:
+      name: mariadb-pod
+      labels:
+        app: {{ .Values.app.mariaDbName }}
+    spec:
+      containers:
+      - name: {{ .Values.app.mariaDbName }}
+        image: {{ .Values.pod.mariaImage }}
+        ports:
+        - name: {{ .Values.pod.mariaPort }}
+          containerPort: {{ .Values.pod.mariaPort }}

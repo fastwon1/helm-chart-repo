@@ -1,0 +1,27 @@
+namespace:
+  name: sao-apps-ns
+
+app:
+  name: backend
+  mariaDbName: maria
+  mongoDbName: mongo
+  replicas: 1
+pod:
+  beImage: nginx
+  mariaImage: mariadb
+  mongoImage: mongodb
+  mariaPort: 3306
+  mongoPort: 27017
+  bePort1: 80
+  bePort2: 443
+
+service:
+  name: backend-service
+  type: NodePort
+  protocol: TCP
+  nodePort: 30061
+  mariaPort: 3306
+  mongoPort: 27017
+  bePort1: 80
+  bePort2: 443
+  swaggerPort: 9000
