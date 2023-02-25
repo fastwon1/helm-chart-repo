@@ -1,0 +1,11 @@
+apiVersion: v1
+entries:
+  backend:
+  - apiVersion: v2
+    created: "2023-02-25T13:58:32.469667385Z"
+    digest: 82ec8b93401807c7d16a98384ff98ddd4c24ae92d7fe7b631583dc397537068a
+    name: backend
+    urls:
+    - https://fastwon1.github.io/helm-chart-repo/backend-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-02-25T13:58:32.469003888Z"
