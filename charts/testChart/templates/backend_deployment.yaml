@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-backend
+  namespace: {{ .Values.namespace.name }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      name: backend-pod
+      labels:
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+      - name: {{ .Values.app.name }}
+        image: {{ .Values.pod.image }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.pod.bePort1 }}
+       # - containerPort: {{ .Values.pod.swaggerPort }}
+       #   name: swagger
